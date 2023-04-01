@@ -20,7 +20,9 @@ This repository contains shell scripts to help you fine-tune and manage OpenAI m
    
 2. Install the required Python modules with:
    
-   `pip install -r requirments.txt`
+   ```bash
+   pip install -r requirements.txt
+   ```
    
 3. Give the shell scripts execute permissions:
 
