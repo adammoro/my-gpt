@@ -70,4 +70,9 @@ The "Stream interrupted (client disconnected)" message is normal and does not in
 Please note that this code is unofficial and not directly provided or supported by OpenAI. For official guides and documentation, refer to the [OpenAI platform documentation](https://platform.openai.com/docs/guides/fine-tuning).
 
 
+## Disclaimer
+
+This code is provided as-is, with no warranties or guarantees of any kind. The author is not responsible for any damages or losses that may occur as a result of using this code. Use at your own risk. Please be aware that this code may contain bugs or other issues that could cause harm to your computer or other devices. The user assumes all risk associated with using this code.
+
+
 
