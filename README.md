@@ -74,5 +74,7 @@ Please note that this code is unofficial and not directly provided or supported 
 
 This code is provided as-is, with no warranties or guarantees of any kind. The author is not responsible for any damages or losses that may occur as a result of using this code. Use at your own risk. Please be aware that this code may contain bugs or other issues that could cause harm to your computer or other devices. The user assumes all risk associated with using this code.
 
+See [LICENSE](https://github.com/adammoro/my-gpt/blob/main/LICENSE) for full disclaimer and copyright details.
+
 
 
