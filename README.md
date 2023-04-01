@@ -57,7 +57,7 @@ If you select Option 2 you'll be presented with the list of available models you
 Note: The default `max_tokens` value is set to 250. You can modify that value on Line 80 of `use_fine_tune_model.sh`:
 
 ```bash
-response=$(openai api completions.create -m $selected_model -p "$prompt" -M 250)
+response=$(openai api completions.create -m $selected_model -p "$prompt" -M <max_tokens>)
 ```
 
 
