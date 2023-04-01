@@ -44,13 +44,13 @@ Open your terminal and navigate to the `my-gpt` folder. Run the script by enteri
 
 ### Option 1: Create a Fine Tuned Model
 
-If you haven't created any fine-tuned models yet you'll want to do that first by selecting option 1. However, before you do that you'll need a CSV file with the training data you want to fine tune the model with. The CSV should have two columns titled: `prompt` and `completion` and should have several hundred rows of data at least. 
+If you haven't created any fine-tuned models yet you'll want to do that first by selecting Option 1. However, before you do that you'll need a CSV file with the training data you want to fine tune the model with. The CSV should have two columns titled: `prompt` and `completion` and should have several hundred rows of data at least. 
 
-Once you have the CSV, run the script and provide it with the path to the CSV on your machine. The script will then send the CSV to OpenAI where it'll be converted to JSONL and used to create the new model. At that point you're just waiting for the fine-tuning process to complete. Once it does you'll be able to use it with option 2. You can also use it in the API Playground now!
+Once you have the CSV, run the script and provide it with the path to the CSV on your machine. The script will then send the CSV to OpenAI where it'll be converted to JSONL and used to create the new model. At that point you're just waiting for the fine-tuning process to complete. Once it does you'll be able to use it with Option 2. You can also use it in the API Playground now!
 
 ### Option 2: Use a Fine Tuned Model
 
-If you select option 2 you'll be presented with the list of available models you can use for your chat session. Select the model you want to use and start asking your questions. The responses will be displayed in the terminal.
+If you select Option 2 you'll be presented with the list of available models you can use for your chat session. Select the model you want to use and start asking your questions. The responses will be displayed in the terminal.
 
 ## Support
 
