@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Ask to add OpenAI API key
+if [ -z "$OPENAI_API_KEY" ]; then
+  echo -e "
+\e[0;31mWarning:\e[0m OpenAI API key environment variable is not set.
+To set the API key, run the following command, 
+replacing <YOUR_API_KEY> with your actual API key:
+\e[0;34mexport OPENAI_API_KEY=<YOUR_API_KEY>\e[0m
+
+Add the above command to your .bashrc or .bash_profile file 
+to not have to enter it again next time.
+"
+  exit 1
+fi
+
 # Check if OpenAI module is installed
 if ! pip list 2>/dev/null | grep -w openai &>/dev/null; then
   echo -e "
@@ -8,8 +22,6 @@ if ! pip list 2>/dev/null | grep -w openai &>/dev/null; then
   echo -e "Please install with: \e[0;34mpip install openai\e[0m
 ###
 "
-else
-  echo -e "\e[0;32mOpenAI module is installed. Great!\e[0m"
 fi
 
 # Check if pandas module is installed
@@ -20,28 +32,18 @@ if ! pip list 2>/dev/null | grep -w pandas &>/dev/null; then
   echo -e "Please install with: \e[0;34mpip install pandas\e[0m
 ###
 "
-else
-  echo -e "\e[0;32mpandas module is installed. Great!\e[0m"
 fi
 
 # Check if both modules are installed before proceeding
 if ! pip list 2>/dev/null | grep -w openai &>/dev/null || ! pip list 2>/dev/null | grep -w pandas &>/dev/null; then
   echo -e "\e[1;33mPlease ensure above module(s) are 
 installed and then re-run the script.\e[0m
+
+You can easily install the modules 
+with the following command:
+\e[0;34mpip install -r requirements.txt\e[0m
   "
   exit 1
-fi
-
-# Ask to add OpenAI API key
-read -p "Do you need to add your OpenAI API key to your environment? (Y/n): " choice
-if [[ $choice == "Y" || $choice == "y" || $choice == "" ]]; then
-  read -sp "Please enter your OpenAI API key: " api_key
-  echo "export OPENAI_API_KEY=$api_key" >> ~/.bashrc
-  source ~/.bashrc
-  echo
-  echo "API key added to the .bashrc file and environment."
-else
-  echo "Skipping API key addition."
 fi
 
 # List fine-tuned models
