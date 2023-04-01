@@ -46,9 +46,13 @@ with the following command:
   exit 1
 fi
 
+prepared_data="$(basename ${csv_file%.csv}_prepared_${timestamp}.jsonl)"
 
 # Ask for input CSV and model
 read -p "Please enter the path of your CSV file: " csv_file
+timestamp=$(date "+%Y%m%d-%H%M%S")
+mv "${csv_file}" "training_data/${timestamp}_$(basename ${csv_file})"
+csv_file="training_data/${timestamp}_$(basename ${csv_file})"
 read -p "Please enter the model to fine-tune (davinci, ada, babbage, or curie): " base_model
 
 # Convert CSV to JSONL
