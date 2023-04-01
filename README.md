@@ -13,14 +13,20 @@ This repository contains shell scripts to help you fine-tune and manage OpenAI m
 
 1. Clone the repository:
 
-   ```
+   ```bash
    git clone https://github.com/adammoro/my-gpt.git
    cd my-gpt
    ```
-
-2. Give the shell scripts execute permissions:
-
+   
+2. Install the required Python modules with:
+   
+   ```bash
+   pip install -r requirements.txt
    ```
+   
+3. Give the shell scripts execute permissions:
+
+   ```bash
    chmod +x fine_tune.sh
    chmod +x use_fine_tuned_model.sh
    chmod +x chat.sh
@@ -40,13 +46,20 @@ Open your terminal and navigate to the `my-gpt` folder. Run the script by enteri
 
 ### Option 1: Create a Fine Tuned Model
 
-If you haven't created any fine-tuned models yet you'll want to do that first by selecting option 1. However, before you do that you'll need a CSV file with the training data you want to fine tune the model with. The CSV should have two columns titled: `prompt` and `completion` and should have several hundred rows of data at least. 
+If you haven't created any fine-tuned models yet you'll want to do that first by selecting Option 1. However, before you do that you'll need a CSV file with the training data you want to fine tune the model with. The CSV should have two columns titled: `prompt` and `completion` and should have several hundred rows of data at least. 
 
-Once you have the CSV, run the script and provide it with the path to the CSV on your machine. The script will then send the CSV to OpenAI where it'll be converted to JSONL and used to create the new model. At that point you're just waiting for the fine-tuning process to complete. Once it does you'll be able to use it with option 2. You can also use it in the API Playground now!
+Once you have the CSV, run the script and provide it with the path to the CSV on your machine. The script will then send the CSV to OpenAI where it'll be converted to JSONL and used to create the new model. At that point you're just waiting for the fine-tuning process to complete. Once it does you'll be able to use it with Option 2. You can also use it in the API Playground now!
 
 ### Option 2: Use a Fine Tuned Model
 
-If you select option 2 you'll be presented with the list of available models you can use for your chat session. Select the model you want to use and start asking your questions. The responses will be displayed in the terminal.
+If you select Option 2 you'll be presented with the list of available models you can use for your chat session. Select the model you want to use and start asking your questions. The responses will be displayed in the terminal.
+
+Note: The default `max_tokens` value is set to 250. You can modify that value on Line 80 of `use_fine_tune_model.sh`:
+
+```bash
+response=$(openai api completions.create -m $selected_model -p "$prompt" -M <max_tokens>)
+```
+
 
 ## Support
 
@@ -55,6 +68,13 @@ If you encounter any issues or need assistance, please open an issue on the repo
 The "Stream interrupted (client disconnected)" message is normal and does not indicate an error or problem with the fine tuning process. If you want to resume the stream enter the command displayed. Otherwise just check back in a while to see if it's ready.
 
 Please note that this code is unofficial and not directly provided or supported by OpenAI. For official guides and documentation, refer to the [OpenAI platform documentation](https://platform.openai.com/docs/guides/fine-tuning).
+
+
+## Disclaimer
+
+This code is provided as-is, with no warranties or guarantees of any kind. The author is not responsible for any damages or losses that may occur as a result of using this code. Use at your own risk. Please be aware that this code may contain bugs or other issues that could cause harm to your computer or other devices. The user assumes all risk associated with using this code.
+
+See [LICENSE](https://github.com/adammoro/my-gpt/blob/main/LICENSE) for full disclaimer and copyright details.
 
 
 
