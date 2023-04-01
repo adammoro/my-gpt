@@ -17,9 +17,11 @@ This repository contains shell scripts to help you fine-tune and manage OpenAI m
    git clone https://github.com/adammoro/my-gpt.git
    cd my-gpt
    ```
+   
 2. Install the required Python modules with:
    
    `pip install -r requirments.txt`
+   
    
 3. Give the shell scripts execute permissions:
 
