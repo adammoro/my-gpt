@@ -22,7 +22,6 @@ This repository contains shell scripts to help you fine-tune and manage OpenAI m
    
    `pip install -r requirments.txt`
    
-   
 3. Give the shell scripts execute permissions:
 
    ```
