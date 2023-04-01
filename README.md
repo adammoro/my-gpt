@@ -13,7 +13,7 @@ This repository contains shell scripts to help you fine-tune and manage OpenAI m
 
 1. Clone the repository:
 
-   ```
+   ```bash
    git clone https://github.com/adammoro/my-gpt.git
    cd my-gpt
    ```
@@ -24,7 +24,7 @@ This repository contains shell scripts to help you fine-tune and manage OpenAI m
    
 3. Give the shell scripts execute permissions:
 
-   ```
+   ```bash
    chmod +x fine_tune.sh
    chmod +x use_fine_tuned_model.sh
    chmod +x chat.sh
@@ -51,6 +51,13 @@ Once you have the CSV, run the script and provide it with the path to the CSV on
 ### Option 2: Use a Fine Tuned Model
 
 If you select Option 2 you'll be presented with the list of available models you can use for your chat session. Select the model you want to use and start asking your questions. The responses will be displayed in the terminal.
+
+Note: The default `max_tokens` value is set to 250. You can modify that value on Line 80 of `use_fine_tune_model.sh`:
+
+```bash
+response=$(openai api completions.create -m $selected_model -p "$prompt" -M 250)
+```
+
 
 ## Support
 
