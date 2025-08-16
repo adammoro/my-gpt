@@ -44,15 +44,13 @@ with the following command:
 \e[0;34mpip install -r requirements.txt\e[0m
   "
   exit 1
-fi
-
-prepared_data="$(basename ${csv_file%.csv}_prepared_${timestamp}.jsonl)"
+  fi
 
 # Ask for input CSV and model
 read -p "Please enter the path of your CSV file: " csv_file
 timestamp=$(date "+%Y%m%d-%H%M%S")
-mv "${csv_file}" "training_data/${timestamp}_$(basename ${csv_file})"
-csv_file="training_data/${timestamp}_$(basename ${csv_file})"
+mv "$csv_file" "training_data/${timestamp}_$(basename "$csv_file")"
+csv_file="training_data/${timestamp}_$(basename "$csv_file")"
 read -p "Please enter the model to fine-tune (davinci, ada, babbage, or curie): " base_model
 
 # Convert CSV to JSONL
