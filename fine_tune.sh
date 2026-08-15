@@ -46,13 +46,29 @@ with the following command:
   exit 1
 fi
 
-prepared_data="$(basename ${csv_file%.csv}_prepared_${timestamp}.jsonl)"
-
 # Ask for input CSV and model
 read -p "Please enter the path of your CSV file: " csv_file
+
+if [ ! -f "$csv_file" ]; then
+  echo -e "
+\e[0;31mError:\e[0m No CSV file found at: $csv_file
+"
+  exit 1
+fi
+
+# Keep the input under training_data/ with a timestamped name so a second
+# run against the same CSV doesn't overwrite the first run's files
 timestamp=$(date "+%Y%m%d-%H%M%S")
-mv "${csv_file}" "training_data/${timestamp}_$(basename ${csv_file})"
-csv_file="training_data/${timestamp}_$(basename ${csv_file})"
+mkdir -p training_data
+timestamped_csv="training_data/${timestamp}_$(basename "$csv_file")"
+if ! mv "$csv_file" "$timestamped_csv"; then
+  echo -e "
+\e[0;31mError:\e[0m Could not move $csv_file into training_data/
+"
+  exit 1
+fi
+csv_file="$timestamped_csv"
+
 read -p "Please enter the model to fine-tune (davinci, ada, babbage, or curie): " base_model
 
 # Convert CSV to JSONL
