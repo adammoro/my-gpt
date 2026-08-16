@@ -1,6 +1,8 @@
 # MyGPT 
 ### OpenAI Fine-tuned Model Management & Usage
 
+> **Archived:** This repo targets OpenAI's legacy fine-tuning CLI (`fine_tunes.*`) and base models (`davinci`, `ada`, `babbage`, `curie`), which OpenAI deprecated in 2024. These scripts no longer work against the current OpenAI API. Kept public for reference only.
+
 This repository contains shell scripts to help you fine-tune and manage OpenAI models like `davinci` or `ada` on your local Linux machine. By providing the training data, you can create smarter models on any given subject. The scripts will guide you through the process of preparing training data, creating fine-tuned models, and using them to generate completions.
 
 ## Requirements
